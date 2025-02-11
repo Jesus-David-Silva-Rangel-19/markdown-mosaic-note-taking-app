@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Save } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { cn } from "@/lib/utils";
 
 export function NoteEditor() {
   const [content, setContent] = useState("");
