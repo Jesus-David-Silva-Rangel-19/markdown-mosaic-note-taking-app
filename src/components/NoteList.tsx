@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Calendar, Plus } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface Note {
   id: string;
@@ -37,9 +38,13 @@ const DEMO_NOTES: Note[] = [
 
 export function NoteList() {
   const [selectedNote, setSelectedNote] = useState<string | null>(null);
+  const isMobile = useIsMobile();
 
   return (
-    <div className="w-80 h-screen border-r border-gray-200 bg-white/60 backdrop-blur-sm flex flex-col">
+    <div className={cn(
+      "border-r border-gray-200 bg-white/60 backdrop-blur-sm flex flex-col",
+      isMobile ? "w-full h-[300px]" : "w-80 h-screen"
+    )}>
       <div className="p-4 border-b border-gray-200">
         <button className="w-full flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-gray-900 text-white hover:bg-gray-800 transition-colors">
           <Plus className="w-4 h-4" />

@@ -3,8 +3,11 @@ import { NoteSidebar } from "@/components/NoteSidebar";
 import { NoteList } from "@/components/NoteList";
 import { NoteEditor } from "@/components/NoteEditor";
 import { Heart, Rocket, Flag } from "lucide-react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const Index = () => {
+  const isMobile = useIsMobile();
+
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
       <div className="bg-blue-50 p-4 text-center text-sm text-blue-800">
@@ -15,7 +18,7 @@ const Index = () => {
         </p>
       </div>
       
-      <div className="flex-1 flex">
+      <div className={`flex-1 flex ${isMobile ? 'flex-col' : ''}`}>
         <NoteSidebar />
         <NoteList />
         <NoteEditor />

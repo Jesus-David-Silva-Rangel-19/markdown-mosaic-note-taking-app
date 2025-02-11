@@ -1,12 +1,17 @@
 
 import { useState } from "react";
 import { Save } from "lucide-react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 export function NoteEditor() {
   const [content, setContent] = useState("");
+  const isMobile = useIsMobile();
 
   return (
-    <div className="flex-1 h-screen flex flex-col bg-white">
+    <div className={cn(
+      "flex-1 flex flex-col bg-white",
+      isMobile ? "h-[calc(100vh-300px)]" : "h-screen"
+    )}>
       <div className="flex items-center justify-between p-4 border-b border-gray-200">
         <input
           type="text"

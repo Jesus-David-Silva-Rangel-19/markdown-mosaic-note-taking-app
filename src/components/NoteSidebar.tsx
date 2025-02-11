@@ -1,7 +1,8 @@
 
 import { useState } from "react";
-import { FolderTree, Tag, Search } from "lucide-react";
+import { FolderTree, Tag, Search, X, Menu } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface Folder {
   id: string;
@@ -17,9 +18,20 @@ const DEMO_FOLDERS: Folder[] = [
 
 export function NoteSidebar() {
   const [selectedFolder, setSelectedFolder] = useState<string | null>(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const isMobile = useIsMobile();
 
-  return (
+  const sidebarContent = (
     <div className="w-64 h-screen border-r border-gray-200 bg-white/80 backdrop-blur-sm p-4 flex flex-col gap-6 animate-slideIn">
+      {isMobile && (
+        <button 
+          onClick={() => setIsOpen(false)}
+          className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+        >
+          <X className="w-5 h-5" />
+        </button>
+      )}
+
       <div className="flex items-center gap-2">
         <Search className="w-4 h-4 text-gray-500" />
         <input
@@ -70,4 +82,27 @@ export function NoteSidebar() {
       </div>
     </div>
   );
+
+  if (isMobile) {
+    return (
+      <>
+        <button
+          onClick={() => setIsOpen(true)}
+          className="fixed top-4 left-4 z-50 p-2 bg-white rounded-lg shadow-lg"
+        >
+          <Menu className="w-5 h-5" />
+        </button>
+        
+        {isOpen && (
+          <div className="fixed inset-0 z-40 bg-black/50" onClick={() => setIsOpen(false)}>
+            <div onClick={e => e.stopPropagation()} className="h-full">
+              {sidebarContent}
+            </div>
+          </div>
+        )}
+      </>
+    );
+  }
+
+  return sidebarContent;
 }
