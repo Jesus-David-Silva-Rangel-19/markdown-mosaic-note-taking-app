@@ -11,8 +11,8 @@ interface Folder {
 
 const DEMO_FOLDERS: Folder[] = [
   { id: "1", name: "Personal", notes: 5 },
-  { id: "2", name: "Work", notes: 3 },
-  { id: "3", name: "Projects", notes: 2 },
+  { id: "2", name: "Trabajo", notes: 3 },
+  { id: "3", name: "Proyectos", notes: 2 },
 ];
 
 export function NoteSidebar() {
@@ -24,13 +24,13 @@ export function NoteSidebar() {
         <Search className="w-4 h-4 text-gray-500" />
         <input
           type="text"
-          placeholder="Search notes..."
+          placeholder="Buscar notas..."
           className="w-full bg-transparent border-none focus:outline-none text-sm"
         />
       </div>
 
       <div>
-        <h2 className="font-heading font-bold text-lg mb-3 text-gray-800">Folders</h2>
+        <h2 className="font-heading font-bold text-lg mb-3 text-gray-800">Carpetas</h2>
         <div className="space-y-2">
           {DEMO_FOLDERS.map((folder) => (
             <button
@@ -52,11 +52,11 @@ export function NoteSidebar() {
       </div>
 
       <div>
-        <h2 className="font-heading font-bold text-lg mb-3 text-gray-800">Tags</h2>
+        <h2 className="font-heading font-bold text-lg mb-3 text-gray-800">Etiquetas</h2>
         <div className="flex flex-wrap gap-2">
           <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-blue-50 text-blue-700 text-xs">
             <Tag className="w-3 h-3" />
-            Work
+            Trabajo
           </span>
           <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-green-50 text-green-700 text-xs">
             <Tag className="w-3 h-3" />
@@ -64,7 +64,7 @@ export function NoteSidebar() {
           </span>
           <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-purple-50 text-purple-700 text-xs">
             <Tag className="w-3 h-3" />
-            Tasks
+            Tareas
           </span>
         </div>
       </div>

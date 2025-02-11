@@ -10,12 +10,12 @@ export function NoteEditor() {
       <div className="flex items-center justify-between p-4 border-b border-gray-200">
         <input
           type="text"
-          placeholder="Note title..."
+          placeholder="Título de la nota..."
           className="text-xl font-heading font-bold bg-transparent border-none focus:outline-none"
         />
         <button className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-900 text-white hover:bg-gray-800 transition-colors">
           <Save className="w-4 h-4" />
-          <span className="text-sm">Save</span>
+          <span className="text-sm">Guardar</span>
         </button>
       </div>
 
@@ -23,7 +23,7 @@ export function NoteEditor() {
         <textarea
           value={content}
           onChange={(e) => setContent(e.target.value)}
-          placeholder="Start writing your note..."
+          placeholder="Empieza a escribir tu nota..."
           className="w-full h-full resize-none bg-transparent border-none focus:outline-none font-sans text-gray-800"
         />
       </div>

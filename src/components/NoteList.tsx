@@ -14,24 +14,24 @@ interface Note {
 const DEMO_NOTES: Note[] = [
   {
     id: "1",
-    title: "Meeting Notes",
-    preview: "Discussion about the new project timeline...",
+    title: "Notas de Reunión",
+    preview: "Discusión sobre la nueva línea de tiempo del proyecto...",
     date: "2024-02-20",
-    tags: ["Work"],
+    tags: ["Trabajo"],
   },
   {
     id: "2",
-    title: "Project Ideas",
-    preview: "- Create a new design system\n- Implement dark mode",
+    title: "Ideas de Proyecto",
+    preview: "- Crear un nuevo sistema de diseño\n- Implementar modo oscuro",
     date: "2024-02-19",
     tags: ["Ideas"],
   },
   {
     id: "3",
-    title: "Weekly Tasks",
-    preview: "1. Review pull requests\n2. Update documentation",
+    title: "Tareas Semanales",
+    preview: "1. Revisar pull requests\n2. Actualizar documentación",
     date: "2024-02-18",
-    tags: ["Tasks"],
+    tags: ["Tareas"],
   },
 ];
 
@@ -43,7 +43,7 @@ export function NoteList() {
       <div className="p-4 border-b border-gray-200">
         <button className="w-full flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-gray-900 text-white hover:bg-gray-800 transition-colors">
           <Plus className="w-4 h-4" />
-          <span className="text-sm">New Note</span>
+          <span className="text-sm">Nueva Nota</span>
         </button>
       </div>
 
